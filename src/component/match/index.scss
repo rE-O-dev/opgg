@@ -1,0 +1,482 @@
+@import "../../asset/variable";
+
+.matchWrap {
+  width: 690px;
+  margin-left: 10px;
+
+  .filterWrap {
+    display: flex;
+    align-items: center;
+    height: 36px;
+    padding: 11px 16px;
+    background-color: #f2f2f2;
+    border: 1px solid #cdd2d2;
+    color: #555;
+    box-sizing: border-box;
+
+    & > button {
+      height: inherit;
+    }
+
+    & > button.active {
+      font-weight: bold;
+      color: #1f8ecd;
+      border-bottom: 2px solid #1f8ecd;
+    }
+
+    button + button {
+      margin-left: 24px;
+    }
+  }
+
+  .summaryWrap {
+    display: flex;
+
+    & > div:not(:last-child) {
+      border-right: 1px solid #cdd2d2;
+    }
+
+    .totalWrap {
+      display: flex;
+      padding: 16px 24px 23px 24px;
+      width: 276px;
+      font-size: 12px;
+      color: #666;
+      text-align: center;
+      box-sizing: border-box;
+
+      .left {
+        width: 90px;
+        height: fit-content;
+
+        .graphWrap {
+          position: relative;
+          margin-top: 14px;
+
+          span {
+            position: absolute;
+            width: 64px;
+            height: 64px;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            line-height: 64px;
+            transform: translate(-50%, -50%);
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+          }
+        }
+      }
+
+      .right {
+        flex: 1;
+        align-self: center;
+        font-weight: bold;
+
+        .kda {
+          font-size: 11px;
+
+          span.red {
+            color: $red;
+          }
+        }
+
+        .kdaGrade {
+          margin-top: 6px;
+          font-size: 16px;
+
+          span.yellow {
+            color: $yellow;
+          }
+
+          span.blue {
+            color: $blue;
+          }
+
+          span.green {
+            color: $green;
+          }
+        }
+      }
+    }
+
+    .championWrap {
+      padding: 16px;
+      .champion {
+        display: flex;
+        img {
+          width: 34px;
+          height: 34px;
+          border-radius: 50%;
+        }
+        .textWrap {
+          margin-left: 8px;
+          .name {
+            font-size: 14px;
+            color: #333;
+          }
+
+          .total {
+            font-size: 11px;
+            font-weight: bold;
+
+            span.yellow {
+              color: $yellow;
+            }
+
+            span.blue {
+              color: $blue;
+            }
+
+            span.green {
+              color: $green;
+            }
+
+            span.red {
+              color: $red;
+            }
+          }
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 14px;
+        }
+      }
+    }
+
+    .positionWrap {
+      padding: 16px;
+      font-size: 12px;
+      .position {
+        display: flex;
+        align-items: center;
+        margin-top: 22px;
+        i {
+          display: inline-block;
+          width: 28px;
+          height: 28px;
+          margin-right: 8px;
+          &.ADC {
+            background-image: url("../../asset/static/icon-mostposition-adc.svg");
+          }
+          &.JNG {
+            background-image: url("../../asset/static/icon-mostposition-jng.svg");
+          }
+          &.MID {
+            background-image: url("../../asset/static/icon-mostposition-mid.svg");
+          }
+          &.SUP {
+            background-image: url("../../asset/static/icon-mostposition-sup.svg");
+          }
+          &.TOP {
+            background-image: url("../../asset/static/icon-mostposition-top.svg");
+          }
+        }
+
+        .text {
+          font-size: 14px;
+
+          .ratio {
+            font-size: 11px;
+            .per {
+              color: #1f8ecd;
+              font-weight: bold;
+            }
+
+            .rate {
+              color: #666;
+              &::before {
+                display: inline-block;
+                margin-left: 6px;
+                margin-right: 6px;
+                content: "";
+                border-left: 1px solid #cdd2d2;
+                height: 12px;
+                vertical-align: middle;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .listWrap {
+    width: 690px;
+    margin-top: 8px;
+    .contents {
+      display: flex;
+      align-items: center;
+      height: 96px;
+      box-sizing: border-box;
+      margin: 8px 0;
+      &.win {
+        background-color: #b0ceea;
+        border: 1px solid #a1b8cd;
+      }
+
+      &.loss {
+        background-color: #d6b5b2;
+        border: 1px solid #c0aba8;
+      }
+    }
+
+    .textWrap {
+      min-width: 70px;
+      font-size: 11px;
+      text-align: center;
+      color: #555;
+      line-height: 16px;
+
+      & > p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+
+      .bar {
+        display: block;
+        width: 27px;
+        margin: 5px auto;
+        height: 2px;
+
+        &.red {
+          background-color: #d0a6a5;
+        }
+
+        &.blue {
+          background-color: #94b9d6;
+        }
+      }
+    }
+
+    .settingWrap {
+      text-align: center;
+      .imageWrap {
+        display: flex;
+        .champ {
+          width: 46px;
+          height: 46px;
+          margin-right: 6px;
+          border-radius: 50%;
+        }
+
+        .spellWrap,
+        .peakWrap {
+          width: 22px;
+        }
+
+        .spell,
+        .peak {
+          width: 22px;
+          height: 22px;
+        }
+      }
+      .champName {
+        font-size: 11px;
+        color: #555;
+      }
+    }
+
+    .kdaWrap {
+      width: 114px;
+      text-align: center;
+
+      .kda {
+        font-size: 15px;
+        letter-spacing: -0.58px;
+      }
+
+      .kdaRatio {
+        font-size: 11px;
+        color: #555e5e;
+        .number {
+          font-weight: bold;
+          color: #333;
+        }
+      }
+
+      .badge {
+        height: 18px;
+        margin-top: 7px;
+        font-size: 10px;
+        color: #fff;
+        box-sizing: border-box;
+
+        & > span + span {
+          margin-left: 4px;
+        }
+
+        span {
+          display: inline-block;
+          padding: 3px 5px;
+          border-radius: 9px;
+        }
+        .multi {
+          background-color: #ec4f48;
+          border: 1px solid #bf3b36;
+        }
+
+        .op {
+          background-color: #8c51c5;
+          border: 1px solid #7f3590;
+        }
+      }
+    }
+
+    .stats {
+      width: 90px;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .itemWrap {
+      width: 96px;
+      margin-right: 11px;
+      .item {
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        border-radius: 2px;
+        margin: 0 2px 2px 0;
+        &.win {
+          background-color: #7aa5c3;
+        }
+
+        &.loss {
+          background-color: #cb9e9a;
+        }
+        & > div {
+          position: relative;
+          img {
+            display: block;
+            width: 22px;
+            height: 22px;
+          }
+
+          .tooltip {
+            position: absolute;
+            width: 300px;
+            padding: 10px;
+            bottom: 32px;
+            left: -150px;
+            background-color: #222727;
+            font-size: 11px;
+            color: #fff;
+
+            &::after {
+              display: block;
+              position: absolute;
+              bottom: -15px;
+              left: 47%;
+              transform: translate(0, -50%);
+              width: 0;
+              height: 0;
+              border-left: 11px solid transparent;
+              border-right: 11px solid transparent;
+
+              border-top: 11px solid #222727;
+              content: "";
+            }
+          }
+        }
+      }
+      .ward {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        i {
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          margin-right: 4px;
+        }
+
+        i.red {
+          background-image: url("../../asset/static/icon-ward-red.svg");
+        }
+        i.blue {
+          background-image: url("../../asset/static/icon-ward-blue.svg");
+        }
+      }
+    }
+
+    .detailWrap {
+      display: flex;
+      .summonernWrap {
+        width: 80px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: 13px;
+        border-top: 0;
+
+        .summoner {
+          display: flex;
+          align-items: center;
+          height: 18px;
+          img {
+            width: 16px;
+            height: 16px;
+            margin: 0 3px 0 0;
+          }
+
+          .summonerName {
+            width: 52px;
+            font-size: 11px;
+            color: #555;
+          }
+        }
+      }
+    }
+
+    .more {
+      position: relative;
+      flex: 1;
+      height: inherit;
+      box-sizing: border-box;
+
+      &.red {
+        background-color: #e89c95;
+        border: 1px solid #c8817c;
+
+        &::after {
+          position: absolute;
+          display: block;
+          left: 6px;
+          bottom: 12px;
+          width: 8px; /* 사이즈 */
+          height: 8px; /* 사이즈 */
+          border-top: 2px solid #c1433e; /* 선 두께 */
+          border-right: 2px solid #c1433e;
+          transform: rotate(135deg); /* 각도 */
+          content: "";
+        }
+      }
+
+      &.blue {
+        background-color: #7fb0e1;
+        border: 1px solid #549dc7;
+
+        &::after {
+          position: absolute;
+          display: block;
+          left: 6px;
+          bottom: 12px;
+          width: 8px; /* 사이즈 */
+          height: 8px; /* 사이즈 */
+          border-top: 2px solid #04609e; /* 선 두께 */
+          border-right: 2px solid #04609e;
+          transform: rotate(135deg); /* 각도 */
+          content: "";
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+body {
+  padding: 0;
+  margin: 0;
+  .layout {
+    background-color: #eaeaea;
+    width: inherit;
+    min-width: fit-content;
+    max-width: 100%;
+    height: 100vh;
+    overflow: auto;
+    .header {
+      position: relative;
+      height: 97px;
+      background-color: #1ea1f7;
+
+      .inputWrap {
+        position: absolute;
+        width: 260px;
+        top: 53px;
+        right: 261px;
+        input {
+          width: 260px;
+          padding: 9px 12px 8px 14px;
+          border-radius: 2px;
+          box-sizing: border-box;
+          border: none;
+          &::placeholder {
+            font-size: 12px;
+            color: #727272;
+          }
+        }
+
+        .latelySearch {
+          position: absolute;
+          top: 34px;
+          width: 260px;
+          background-color: #fff;
+
+          .buttonWrap {
+            display: flex;
+
+            button {
+              flex: 1;
+              height: 40px;
+              background-color: #e3e3e3;
+              color: #9c9c9c;
+              &.on {
+                background-color: #fff;
+                color: #4a4a4a;
+              }
+            }
+          }
+
+          .history {
+            display: flex;
+            flex-direction: column;
+            padding: 5px 20px 20px 0;
+            li {
+              position: relative;
+              float: left;
+              width: 100%;
+              padding-left: 20px;
+              margin-top: 15px;
+              box-sizing: border-box;
+              line-height: 15px;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+
+      .summonerInfo {
+        display: flex;
+        position: absolute;
+        top: 34px;
+        width: 260px;
+        padding: 7px 17px;
+        background-color: #fff;
+        box-sizing: border-box;
+
+        .profImg {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          margin-right: 14px;
+        }
+
+        .name {
+          font-size: 14px;
+          color: #333;
+        }
+
+        .tier {
+          font-size: 12px;
+          color: #666;
+        }
+      }
+    }
+  }
+}

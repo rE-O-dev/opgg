@@ -1,0 +1,153 @@
+@import "../../asset/variable";
+.mostWrap {
+  width: 300px;
+  background-color: #ededed;
+  border: 1px solid #cdd2d2;
+
+  .filterWrap {
+    display: flex;
+    button {
+      flex: 1;
+      padding: 15px 0;
+      background-color: #f2f2f2;
+      border-bottom: 1px solid #cdd2d2;
+      font-size: 12px;
+      color: #879292;
+
+      &.left {
+        border-right: 1px solid #cdd2d2;
+      }
+
+      &.right {
+        border-left: 1px solid #cdd2d2;
+      }
+
+      &.active {
+        background-color: #ededed;
+        border: 0;
+        color: #5e5e5e;
+      }
+    }
+  }
+
+  .list {
+    .rate {
+      display: flex;
+      padding: 3px 0 3px 15px;
+      font-size: 11px;
+      color: #879292;
+      align-items: center;
+      img {
+        width: 45px;
+        height: 45px;
+        margin-right: 10px;
+        border-radius: 50%;
+      }
+
+      .bold {
+        font-weight: bold;
+        font-size: 13px;
+        color: #5e5e5e;
+      }
+
+      .championInfo {
+        width: 70px;
+
+        .name {
+          width: 70px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+
+      .kda {
+        flex: 1;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        p.yellow {
+          color: $yellow;
+        }
+
+        p.green {
+          color: $green;
+        }
+
+        p.blue {
+          color: $blue;
+        }
+      }
+
+      .played {
+        width: 70px;
+        white-space: nowrap;
+        text-align: center;
+
+        p.red {
+          color: $red;
+        }
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #cdd2d2;
+      }
+    }
+
+    .recent {
+      display: flex;
+      align-items: center;
+      padding: 8px 8px 8px 15px;
+      font-size: 13px;
+      font-weight: bold;
+      img {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+        border-radius: 50%;
+      }
+
+      .championInfo {
+        width: 55px;
+        .name {
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+
+      .odds {
+        width: 45px;
+        color: #879292;
+        text-align: center;
+
+        p.red {
+          color: $red;
+        }
+      }
+
+      .winRatioBand {
+        display: flex;
+
+        min-width: 123px;
+        height: 24px;
+        margin-left: 12px;
+        font-size: 12px;
+        font-weight: bold;
+
+        & > div {
+          display: flex;
+          align-items: center;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #cdd2d2;
+      }
+    }
+  }
+}
