@@ -7,8 +7,6 @@ import Info from './component/info';
 import {Route, Switch} from 'react-router-dom'
 
 function App() {
-  
-  
   return (
     <Layout>
       <Switch>
@@ -21,6 +19,5 @@ function App() {
       </Switch>
     </Layout>
   );
-}
-
+  }
 export default App;
