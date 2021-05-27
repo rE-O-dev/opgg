@@ -1,14 +1,17 @@
 import { useState, useContext, useMemo } from 'react';
 
-import { Context } from '../../context';
-
 import HighchartsReact from 'highcharts-react-official'
 import Highcharts from 'highcharts';
 
+import kdaColor from '../../lib/kdaColor';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux';
 import ListComponent from './content/list';
 
+
+
 import './index.scss';
-import kdaColor from '../../lib/kdaColor';
+
 
 enum FilterType {
   all,
@@ -22,10 +25,7 @@ const filters = ["전체", "솔로게임", "자유랭크"]
 
 
 const Match = () => {
-  
-  const { state } = useContext(Context);
-  
-  const { matchList } = state;
+  const matchList = useSelector((state: RootState) => state.matchList);
 
   const [filter, setFilter] = useState<number>(FilterType.all);
   

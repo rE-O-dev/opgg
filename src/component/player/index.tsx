@@ -1,18 +1,13 @@
-import { useContext } from 'react';
-import { Context } from '../../context';
-
-import { useLocation } from 'react-router-dom';
+import { RootState } from '../../redux/index';
+import { useSelector } from 'react-redux';
 
 import './index.scss';
 const Player = () => {
-  
-  const location = useLocation();
-  console.log(location)
-  
 
-  const { state } = useContext(Context);
-  if(state.player !== null) {
-    const { ladderRank, level, name, previousTiers, profileBorderImageUrl, profileImageUrl } = state.player;
+  const player = useSelector((state: RootState) => state.player);
+
+  if(player !== null) {
+    const { ladderRank, level, name, previousTiers, profileBorderImageUrl, profileImageUrl } = player;
     
     const PreviousTier = (props: {tier: any}) => {
       const { tier } = props;

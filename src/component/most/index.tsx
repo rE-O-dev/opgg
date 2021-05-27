@@ -1,7 +1,8 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
-import { Context } from '../../context';
 import kdaColor from "../../lib/kdaColor";
+import { RootState } from "../../redux";
 
 import './index.scss';
 
@@ -11,9 +12,7 @@ enum Filter {
 }
 
 const Most = () => {
-  const { state } = useContext(Context);
-  const { most } = state;
-  
+  const most = useSelector((state: RootState) => state.most);
   
   const [filter, setFilter] = useState<number>(Filter.rate);
 

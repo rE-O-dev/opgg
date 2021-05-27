@@ -6,15 +6,15 @@ import dateCalc from '../../../lib/dateCalc';
 
 import { getMatchDetail } from '../../../api';
 import { useLayoutEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../redux';
 
 
 
 const ListComponent = (props: {list: JsonArrayType}) => {
   const { list } = props;
 
-  const { state } = useContext(Context);
-
-  const { itemList } = state;
+  const itemList = useSelector((state: RootState) => state.itemList);
 
   const [itemInfo, setItemInfo] = useState({
     key: "",

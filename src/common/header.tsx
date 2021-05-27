@@ -1,15 +1,19 @@
-import { useCallback, useState, useContext, useLayoutEffect, useEffect } from 'react';
+import { useCallback, useState, useLayoutEffect, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
 import { getSummoner, getMatchList, getMostInfo, getItemInfo } from '../api';
 
-import { Context } from '../context';
+import { useDispatch } from 'react-redux';
+
+import { add as playerAdd } from '../redux/modules/player';
+import { add as mostAdd } from '../redux/modules/most'; 
+import { add as matchListAdd } from '../redux/modules/matchList';
+import { add as itemListAdd } from '../redux/modules/itemList';
 
 const Header = () => {
-  const history = useHistory();
   const location = useLocation();
   
-  const { action,state } = useContext(Context);
+  const dispatch = useDispatch();
   
   const [searchText, setSearchText] = useState<string>("");
   const [focus, setFocus] = useState<boolean>(false);
@@ -22,26 +26,24 @@ const Header = () => {
     }
   });
 
-  const [summonerInfo, setSummonerInfo] = useState<PlayerType>(null);
+  const [summonerInfo, setSummonerInfo] = useState<PlayerState>(null);
 
   const isEnter = useCallback((e) => {
     if(e.key === "Enter") {
       e.stopPropagation();
-      fetchSummoner(searchText);
+      window.location.href = `/${searchText}`
     }
   }, [searchText]);
 
   const fetchSummoner = useCallback(async (name: string) => {
-    history.push(`/${name}`);
-    
+
     const summoner = await getSummoner(name);
     const matchList = await getMatchList(name);
     const mostInfo = await getMostInfo(name);
     
-    action.setPlayer(summoner.summoner);
-    action.setMost(mostInfo);
-    action.setMatchList(matchList);
-
+    dispatch(playerAdd(summoner.summoner));
+    dispatch(mostAdd(mostInfo));
+    dispatch(matchListAdd(matchList));
 
     const searchHistory = localStorage.getItem("searchHistory");
     if(searchHistory) {
@@ -91,8 +93,8 @@ const Header = () => {
   
   useLayoutEffect(() => {
     async function items() {
-      const item = await getItemInfo();
-      action.setItemList(item);    
+      const item = await getItemInfo(); 
+      dispatch(itemListAdd(item));  
     }
     items();
 

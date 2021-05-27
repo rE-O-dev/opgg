@@ -1,15 +1,14 @@
-import { useContext } from 'react';
-
-import { Context } from '../../context';
-
 import Rank from '../rank';
 import Most from '../most';
 import Match from '../match';
 
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux';
+
 import './index.scss';
+
 const Info = () => {
-  const { state } = useContext(Context);
-  const { player } = state;
+  const player = useSelector((state: RootState) => state.player);
 
   if(player) {
     const { leagues } = player;

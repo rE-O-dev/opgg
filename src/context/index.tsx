@@ -1,17 +1,17 @@
 import { createContext, useState } from 'react';
 
 type StateType = {
-  player: PlayerType;
-  most: MostType;
-  matchList: MatchListType;
-  itemList: ItemListType;
+  player: PlayerState;
+  most: MostState;
+  matchList: MatchListState;
+  itemList: ItemListState;
 }
 
 type ActionType = {
-  setPlayer(player: PlayerType): void;
-  setMost(most: MostType): void;
-  setMatchList(matchList: MatchListType): void;
-  setItemList(itemList: ItemListType): void;
+  setPlayer(player: PlayerState): void;
+  setMost(most: MostState): void;
+  setMatchList(matchList: MatchListState): void;
+  setItemList(itemList: ItemListState): void;
 }
 
 type BundleType = {
