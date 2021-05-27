@@ -7,7 +7,7 @@ import './index.scss';
 
 enum Filter {
   rate,
-  recent
+  recent,
 }
 
 const Most = () => {

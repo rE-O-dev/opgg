@@ -1,11 +1,14 @@
 import { useCallback, useState, useContext, useLayoutEffect, useEffect } from 'react';
-import { convertTypeAcquisitionFromJson } from 'typescript';
+import { useHistory, useLocation } from 'react-router-dom';
 
 import { getSummoner, getMatchList, getMostInfo, getItemInfo } from '../api';
 
 import { Context } from '../context';
 
 const Header = () => {
+  const history = useHistory();
+  const location = useLocation();
+  
   const { action,state } = useContext(Context);
   
   const [searchText, setSearchText] = useState<string>("");
@@ -29,6 +32,8 @@ const Header = () => {
   }, [searchText]);
 
   const fetchSummoner = useCallback(async (name: string) => {
+    history.push(`/${name}`);
+    
     const summoner = await getSummoner(name);
     const matchList = await getMatchList(name);
     const mostInfo = await getMostInfo(name);
@@ -38,9 +43,9 @@ const Header = () => {
     action.setMatchList(matchList);
 
 
-    const history = localStorage.getItem("searchHistory");
-    if(history) {
-      const array = JSON.parse(history);
+    const searchHistory = localStorage.getItem("searchHistory");
+    if(searchHistory) {
+      const array = JSON.parse(searchHistory);
 
       const filterArray = array.filter((v:string) => {
         return v.toLocaleLowerCase() !== name.toLocaleLowerCase()
@@ -90,7 +95,16 @@ const Header = () => {
       action.setItemList(item);    
     }
     items();
-  }, [])
+
+    const { pathname } = location;
+
+    const path = pathname.split("/").join("");
+
+    if(path) {
+      fetchSummoner(path);
+    }
+
+  }, []);
 
   return (
     <div className="header">

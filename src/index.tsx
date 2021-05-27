@@ -5,13 +5,17 @@ import reportWebVitals from './reportWebVitals';
 
 import { ContextProvider } from './context';
 
+import { BrowserRouter } from 'react-router-dom';
+
 import './asset/reset.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ContextProvider>
-      <App />
-    </ContextProvider>
+    <BrowserRouter> 
+      <ContextProvider>
+        <App />
+      </ContextProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

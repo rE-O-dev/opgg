@@ -1,8 +1,15 @@
 import { useContext } from 'react';
 import { Context } from '../../context';
 
+import { useLocation } from 'react-router-dom';
+
 import './index.scss';
 const Player = () => {
+  
+  const location = useLocation();
+  console.log(location)
+  
+
   const { state } = useContext(Context);
   if(state.player !== null) {
     const { ladderRank, level, name, previousTiers, profileBorderImageUrl, profileImageUrl } = state.player;

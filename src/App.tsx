@@ -4,13 +4,21 @@ import Player from './component/player';
 
 import Info from './component/info';
 
+import {Route, Switch} from 'react-router-dom'
+
 function App() {
+  
+  
   return (
     <Layout>
-      <div className="App">
-        <Player />
-        <Info />
-      </div>
+      <Switch>
+        <Route exact={true} path={`/:summonerId`}>
+          <div className="App">
+            <Player />
+            <Info />
+          </div>
+        </Route>
+      </Switch>
     </Layout>
   );
 }
